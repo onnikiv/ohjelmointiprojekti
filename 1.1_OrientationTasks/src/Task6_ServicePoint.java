@@ -1,11 +1,11 @@
 import java.util.LinkedList;
 
-class Customer {
+class Customer6 {
     private final int id;
     private static int idCount = 1;
     private final long arrivalTime;
 
-    public Customer() {
+    public Customer6() {
         this.id = idCount++;
         this.arrivalTime = System.currentTimeMillis();
     }
@@ -19,26 +19,26 @@ class Customer {
     }
 }
 
-class CustomerGenerator {
+class CustomerGenerator6 {
     public static void createCustomer(int amountOfCustomers, Task6_ServicePoint servicePoint) {
         System.out.println("Added: " + amountOfCustomers + " customers to queue.");
         
         for (int i = 1; i <= amountOfCustomers; i++) {
-            Customer customer = new Customer();
+            Customer6 customer = new Customer6();
             servicePoint.addToQueue(customer);
         }
     }
 }
 
 public class Task6_ServicePoint {
-    private final LinkedList<Customer> queue = new LinkedList<>();
+    private final LinkedList<Customer6> queue = new LinkedList<>();
     private long totalServiceTime = 0;
     
-    public void addToQueue(Customer customer) {
+    public void addToQueue(Customer6 customer) {
         queue.addFirst(customer);
     }
 
-    Customer removeFromQueue() {
+    Customer6 removeFromQueue() {
         return queue.removeLast();
     }
 
@@ -46,7 +46,7 @@ public class Task6_ServicePoint {
         int customersServed = 0;
 
         while (!queue.isEmpty()) {
-            Customer customer = removeFromQueue();
+            Customer6 customer = removeFromQueue();
 
             int serviceTime = (int) ((Math.random() * 3000) + 1000);
             try {
@@ -80,7 +80,7 @@ public class Task6_ServicePoint {
         for (int i = 1; i <= runs; i++) {
             System.out.println("\n--- Run #" + i + " ---");
             Task6_ServicePoint servicePoint = new Task6_ServicePoint();
-            CustomerGenerator.createCustomer(customersPerRun, servicePoint);
+            CustomerGenerator6.createCustomer(customersPerRun, servicePoint);
             servicePoint.serve();
         }
     }
