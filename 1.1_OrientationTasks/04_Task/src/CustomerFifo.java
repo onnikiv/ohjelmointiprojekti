@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class CustomerFifo {
     private int id;
@@ -44,23 +45,43 @@ public class CustomerFifo {
     }
 
     public static void main(String[] args) {
-        CustomerFifo customer = new CustomerFifo();
-        customer.setStartTime(123);
-        customer.setEndTime(654);
-
-        CustomerFifo customer2 = new CustomerFifo();
-        customer2.setStartTime(0);
-        customer2.setEndTime(599);
-
-        // Luodaan ja täytetään jono
-        LinkedList<CustomerFifo> queue = new LinkedList<>();
-        queue.addFirst(customer);
-        queue.addFirst(customer2);
-
-        // Tyhjätään jono
-        while (!queue.isEmpty()) {
-            CustomerFifo c = queue.removeLast();
-            System.out.println("Asiakkaalla (" + c.getId() + ") meni " + c.calculateTime() + " aikaa palvelussa.");
+        try (Scanner scanner = new Scanner(System.in)) {
+            LinkedList<CustomerFifo> queue = new LinkedList<>();
+            boolean ongoing = true;
+            System.out.println("\nEnter:");
+            System.out.println("0 to Exit");
+            System.out.println("1 to Add customer to queue");
+            System.out.println("2 to Remove the first customer from queue\n"); 
+            
+            while (ongoing) {
+                
+                int command = scanner.nextInt();
+                switch (command) {
+                    case 0 -> {
+                        ongoing = false;
+                        System.out.println("Goodbye!\n");
+                        
+                    }
+                    case 1 -> {
+                        CustomerFifo customer = new CustomerFifo();
+                        customer.setStartTime(System.currentTimeMillis());
+                        queue.addFirst(customer);
+                        System.out.println("Customer added - Id: " + customer.getId());
+                        System.out.println(" ".repeat(40) + "(In queue: " + queue.size() + ")");
+                    }
+                    
+                    case 2 -> {
+                        if (!queue.isEmpty()) {
+                            CustomerFifo customer = queue.removeLast();
+                            customer.setEndTime(System.currentTimeMillis());
+                            System.out.print("Customer removed - ");
+                            System.out.println("Id: " + customer.getId() + " - Time spent: " + customer.calculateTime()/1000 + "s.");
+                            System.out.println(" ".repeat(40) + "(In queue: " + queue.size() + ")");
+                            
+                        } else {System.out.println("No customers to remove!");}
+                    }
+                }
+            } 
         }
     }
 }
