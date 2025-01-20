@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class Customer {
     private int id;
     private long startTime;
@@ -45,22 +43,15 @@ public class Customer {
 
     public static void main(String[] args) {
         Customer customer = new Customer();
+        Customer customer2 = new Customer();
+
         customer.setStartTime(123);
         customer.setEndTime(654);
-
-        Customer customer2 = new Customer();
         customer2.setStartTime(0);
         customer2.setEndTime(599);
 
-        // Luodaan ja täytetään jono
-        LinkedList<Customer> queue = new LinkedList<>();
-        queue.addFirst(customer);
-        queue.addFirst(customer2);
+        System.out.println("Asiakas id: " + customer.getId() + ", kulutettu aika palvelussa: " + customer.calculateTime() + " ms.");
+        System.out.println("Asiakas id: " + customer2.getId() + ", kulutettu aika palvelussa: " + customer2.calculateTime() + " ms.");
 
-        // Tyhjätään jono
-        while (!queue.isEmpty()) {
-            Customer c = queue.removeLast();
-            System.out.println("Asiakkaalla (" + c.getId() + ") meni " + c.calculateTime() + " aikaa palvelussa.");
-        }
     }
 }
