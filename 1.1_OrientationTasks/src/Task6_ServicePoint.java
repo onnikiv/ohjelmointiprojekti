@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.util.Scanner;
 
 class Customer {
     private final int id;
@@ -33,6 +32,7 @@ class CustomerGenerator {
 
 public class Task6_ServicePoint {
     private final LinkedList<Customer> queue = new LinkedList<>();
+    private long totalServiceTime = 0;
     
     public void addToQueue(Customer customer) {
         queue.addFirst(customer);
@@ -43,6 +43,8 @@ public class Task6_ServicePoint {
     }
 
     public void serve() {
+        int customersServed = 0;
+
         while (!queue.isEmpty()) {
             Customer customer = removeFromQueue();
 
@@ -53,26 +55,33 @@ public class Task6_ServicePoint {
                 e.printStackTrace();
             }
 
+            totalServiceTime += serviceTime;
+            customersServed++;
+
             long currentTime = System.currentTimeMillis();
             long responseTime = currentTime - customer.getArrivalTime();
 
             System.out.println("Customer ID: " + customer.getId() + " served. Time in Queue: " + responseTime / 1000 + "s, Service Time: " + serviceTime / 1000 + "s");
         }
 
+        double averageServiceTime = 0;
+        if (customersServed > 0) {
+            averageServiceTime = (double) totalServiceTime / customersServed;
+        }
+        
         System.out.println("All customers served.");
+        System.out.println("Average Service Time: " + averageServiceTime / 1000 + " seconds");
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the amount of customers to serve: ");
-        int amountOfCustomersToAdd = scanner.nextInt();
-
-        Task6_ServicePoint servicePoint = new Task6_ServicePoint();
-        CustomerGenerator.createCustomer(amountOfCustomersToAdd, servicePoint);
-
-        System.out.println("Total customers in queue: " + servicePoint.queue.size());
-
-        servicePoint.serve();
-        scanner.close();
+        int runs = 3;
+        int customersPerRun = 6;
+        
+        for (int i = 1; i <= runs; i++) {
+            System.out.println("\n--- Run #" + i + " ---");
+            Task6_ServicePoint servicePoint = new Task6_ServicePoint();
+            CustomerGenerator.createCustomer(customersPerRun, servicePoint);
+            servicePoint.serve();
+        }
     }
 }
