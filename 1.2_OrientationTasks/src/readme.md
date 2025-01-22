@@ -19,11 +19,12 @@ b) Palvelun alkaminen luo poistumistapahtuman, joka merkitsee palvelun päättym
 | B1    | 5    |
 | B2    | 10   |
 
-### **Work Completed**
+### **Results**
+| Work Complete |   |
+|:-------------|:--:|
+| X | 0 |
+| Y | 0 |
 
-| X | Y |
-|---|---|
-| 0 | 0 |
 
 ## Clock 5: Event B1
 ### **State Table**
@@ -42,8 +43,8 @@ b) Palvelun alkaminen luo poistumistapahtuman, joka merkitsee palvelun päättym
 ### **Results**
 | Work Complete |   |
 |:-------------|:--:|
-| X | Y |
-|0|0|
+| X | 0 |
+| Y | 0 |
 
 ---
 
@@ -68,9 +69,11 @@ b) Palvelun alkaminen luo poistumistapahtuman, joka merkitsee palvelun päättym
 | B4    | 10   |
 
 ### **Results**
-| Work Complete | X | Y |
-|---------------|---|---|
-|               | 0 | 0 |
+| Work Complete |   |
+|:-------------|:--:|
+| X | 0 |
+| Y | 0 |
+
 
 ---
 
@@ -100,9 +103,11 @@ b) Palvelun alkaminen luo poistumistapahtuman, joka merkitsee palvelun päättym
 | B2    | 20   |
 
 ### **Results**
-| Work Complete | X | Y |
-|---------------|---|---|
-|               | 1 | 0 |
+| Work Complete |   |
+|:-------------|:--:|
+| X | 1 |
+| Y | 0 |
+
 
 ---
 
@@ -127,9 +132,11 @@ b) Palvelun alkaminen luo poistumistapahtuman, joka merkitsee palvelun päättym
 | B2    | 20   |
 
 ### **Results**
-| Work Complete | X | Y |
-|---------------|---|---|
-|               | 1 | 0 |
+| Work Complete |   |
+|:-------------|:--:|
+| X | 1 |
+| Y | 0 |
+
 
 ---
 
@@ -153,9 +160,11 @@ b) Palvelun alkaminen luo poistumistapahtuman, joka merkitsee palvelun päättym
 | B2    | 20   |
 
 ### **Results**
-| Work Complete | X | Y |
-|---------------|---|---|
-|               | 1 | 1 |
+| Work Complete |   |
+|:-------------|:--:|
+| X | 1 |
+| Y | 1 |
+
 
 ---
 
