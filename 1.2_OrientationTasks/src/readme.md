@@ -6,11 +6,8 @@ b) Palvelun alkaminen luo poistumistapahtuman, joka merkitsee palvelun päättym
 ### Task 4
 
 
-# Three-Phase Simulation Example: Call Centre
 
-## Initial Setup: Clock 0
-The simulation begins with the following setup:
-
+## Init, Clock 0
 ### **State Table**
 | Phase  | Router Queue | Router | Oper 1 Queue | Oper 1 | Oper 2 Queue | Oper 2 |
 |--------|--------------|--------|--------------|--------|--------------|--------|
@@ -22,21 +19,13 @@ The simulation begins with the following setup:
 | B1    | 5    |
 | B2    | 10   |
 
-### **Results**
-| Work Complete | X | Y |
-|---------------|---|---|
-|               | 0 | 0 |
+### **Work Completed**
 
----
+| X | Y |
+|---|---|
+| 0 | 0 |
 
 ## Clock 5: Event B1
-1. **A-Phase**: Advance the clock to 5 minutes, process event B1.
-2. **B-Phase**: 
-   - Customer X1 arrives at the router queue.
-   - Schedule the next arrival of X at time 10 (B1).
-3. **C-Phase**:
-   - X1 is routed to the router, scheduled to complete at time 6 (B3).
-
 ### **State Table**
 | Phase  | Router Queue | Router | Oper 1 Queue | Oper 1 | Oper 2 Queue | Oper 2 |
 |--------|--------------|--------|--------------|--------|--------------|--------|
@@ -51,9 +40,10 @@ The simulation begins with the following setup:
 | B1    | 10   |
 
 ### **Results**
-| Work Complete | X | Y |
-|---------------|---|---|
-|               | 0 | 0 |
+| Work Complete |   |
+|:-------------|:--:|
+| X | Y |
+|0|0|
 
 ---
 
