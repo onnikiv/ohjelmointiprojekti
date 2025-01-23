@@ -71,21 +71,21 @@ public class EventSim {
     public static void main(String[] args) {
         EventList eventList = new EventList();  // eventti lista
 
-        // eventit
+        // eventit, esim Event 1 tapahtuu ajankohdalla 10, tapahtuma: Saapuminen, jne
         eventList.addEvent(new Event("Event 1", 10, EventType.ARRIVAL));
         eventList.addEvent(new Event("Event 2", 50, EventType.EXIT));
         eventList.addEvent(new Event("Event 3", 150, EventType.ARRIVAL));
         eventList.addEvent(new Event("Event 4", 75, EventType.EXIT));
 
-        // Print the list of events in order of their times
+        // printataan nimen mukaan
         System.out.println("Events in the list:");
         eventList.printEvents();
 
-        // Retrieve and process the next event (the earliest one in time)
+        // napataan ja "suoritetaan" seuraava eventti, joka on ajanmukaan eka
         Event nextEvent = eventList.getNextEvent();
         System.out.println("\nNext event to be processed: " + nextEvent.getName() + ", Time: " + nextEvent.getEventTime() + ", Type: " + nextEvent.getEventType());
 
-        // Print the list of events after the earliest event has been processed and removed
+        // printataan lista tapahtumista sen jälkeen, kun aikaisin tapahtuma on käsitelty ja poistettu
         System.out.println("\nEvents in the list after removing the first event:");
         eventList.printEvents();
     }
