@@ -19,9 +19,7 @@ public class AgeDistribution {
                         // = 30 
         };
         
-        int ageDistribution[][] = {
-
-        };
+        System.out.println((int)(Math.random()*35) +1);
         
     }
 }
