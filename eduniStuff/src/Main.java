@@ -5,7 +5,7 @@ public class Main {
     
     public static void main(String[] args) {
 
-        Bernoulli bernoulli = new Bernoulli(0.01);  // System.nanoTime()
+        Bernoulli bernoulli = new Bernoulli(0.69, System.currentTimeMillis());
 
         // DiscreteGenerator dist = new Poisson(0.5);
         ArrayList<Long> lista =  new ArrayList<>();
@@ -19,8 +19,7 @@ public class Main {
             // System.out.println("Sample: " + bernoulli.sample());
             
         }
-        // pysyvä todennäköisyys, jos lisää just ton seedin, System.nanoTime() nii pitäis 
-        // vaihtuu aina joka kerta mut ei toiminu jostai syyst
+        // pysyvä todennäköisyys, jos lisää just ton seedin, System.currentTimeMillis()
         System.out.println("Todnäk: " + lista.size());
     }
     
