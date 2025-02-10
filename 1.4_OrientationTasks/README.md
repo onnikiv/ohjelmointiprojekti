@@ -86,3 +86,32 @@ flowchart LR
 
 ## Task 4
 
+```java
+
+public static void main(String[] args) {
+
+        // Phase 1: Alustus
+        initializeSimulation();
+
+        // Phase 2: Suoritus
+        while (!simulationComplete()) {
+            advanceClock();  // Edistetään aikaa
+
+            executeBEvents();  // Suoritetaan B-tapahtumat
+            attemptCEvents();  // Yritetään suorittaa C-tapahtumat
+
+            // Jos C-tapahtumia on suoritettu, yritetään suoritettua lisää
+            if (cEventsPerformed()) {
+                attemptCEvents();
+            }
+        }
+
+        // Phase 3: Viimeistely
+        finalizeSimulationResults();  // Tulosten näyttäminen
+    }
+```
+## Task 5
+
+- **A-vaiheessa** alustetaan simulaation parametrit ja siirretään kello seuraavaan tapahtumaan.
+- **B-tapahtumat** ovat aikataulutettuja tapahtumia, kuten asiakkaiden poistuminen palvelupisteeltä ja seuraavien tapahtumien aikatauluttaminen.
+- **C-tapahtumat** ovat ehtopohjaisia tapahtumia, jotka tapahtuvat vain, jos tietyt ehdot täyttyvät (esim. palvelupisteen vapautuminen tai asiakkaan jonottaminen).
