@@ -81,6 +81,8 @@ flowchart LR
     H --> K((Ostokset))
 
     J --> h(Poistuminen)
-    K --> h( Poistuminen)
+    K --> k( Poistuminen)
 ```
+
+## Task 4
 
