@@ -50,3 +50,37 @@ Yleensä __performance measures__ ylläpidetään/päivitetään ja lasketaan ka
 
 #### __Siksi juuri lasketaan muuttujat erikseen palvelupisteen ja asiakkaan näkökulmasta.__
 
+
+## Task 3
+
+```Pikaruokala esimerkki:```
+```mermaid
+flowchart LR
+    A(Saapuminen) --> B[( )]
+    B --> C((Tilaaminen))
+    C --> D((Maksaminen))
+    D --> E[( )]
+    E --> F((Ruoan nouto))
+    F --> h( Poistuminen)
+
+```
+--- 
+```Ruokakauppa esimerkki:  -> Normi ja itsepalvelukassa```
+```mermaid
+flowchart LR
+    A(Saapuminen) --> B[( )]
+    A(Saapuminen) --> C[( )]
+
+    B --> E((Kassa))
+    C --> F((Kassa))
+
+    E --> G((Maksaminen))
+    F --> H((Maksaminen))
+
+    G --> J((Ostokset))
+    H --> K((Ostokset))
+
+    J --> h(Poistuminen)
+    K --> h( Poistuminen)
+```
+
